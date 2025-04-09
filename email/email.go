@@ -4,6 +4,7 @@ import (
 	"crypto/tls"
 	"event-notifier/events/bernabeu"
 	"fmt"
+	"os"
 
 	"gopkg.in/gomail.v2"
 )
@@ -46,7 +47,7 @@ func (em *Emailer) Send(to []string, subject, body string) error {
 }
 
 func (em *Emailer) SendFootballMatchTodayAlert(match bernabeu.Match) error {
-	to := []string{"example1@gmail.com", "example2@gmail.com"}
+	to := []string{os.Getenv("TO_1"), os.Getenv("TO_2")}
 	subject := "ATENCIÓN: Hoy hay partido en el Bernabéu"
 	body := fmt.Sprintf("Este es una notificación para recordarte que hoy juega %s, a las %s, por %s", match.Description.Plaintext, match.DateTime, match.Competition.Name)
 
