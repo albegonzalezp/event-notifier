@@ -1,6 +1,6 @@
 module event-notifier
 
-go 1.24.1
+go 1.24.0
 
 require (
 	github.com/brianvoe/gofakeit/v7 v7.2.1
