@@ -12,9 +12,11 @@ import (
 
 func main() {
 
-	log.Println("Loaded envs.")
-	if err := godotenv.Load(); err != nil {
-		log.Fatal(err)
+	if os.Getenv("ENV") != "prod" {
+		log.Println("Loaded envs.")
+		if err := godotenv.Load(); err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	log.Println("Load smtp config.")
